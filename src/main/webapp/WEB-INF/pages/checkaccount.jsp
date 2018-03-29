@@ -1,6 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
-<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 * {
 	box-sizing: border-box;
@@ -149,24 +158,12 @@ input[type=text]:hover, input[type=password]:hover, label:hover ~ input[type=tex
 	background: #27292c;
 }
 </style>
-
-</head>
 <body>
 <br>
 <br>
 <br>
 <br>
-
-<h4>Account Summary for:</h4>
-<h4>${name}</h4>
-<br>
-<br>
-<h4>Checking balance</h4>
-<h4>${bal}</h4>
-<br>
-<br>
-<h4>Savings balance</h4>
-<h4>${bal1}</h4>
+<h1>ACCOUNT SUMMARY</h1>
 
 </body>
 </html>

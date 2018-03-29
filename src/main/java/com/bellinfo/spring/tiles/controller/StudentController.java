@@ -64,12 +64,32 @@ public class StudentController {
 
 	}
 
-	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
-	public String getAccounts(Model model) {
+	@RequestMapping(value = "/checkaccount", method = RequestMethod.GET)
+	public String getAcct(Model model, @ModelAttribute Login log, @ModelAttribute SessionListener listen,
+			HttpServletRequest request, HttpServletResponse response) {
+		
+		double chkbal=0;
+		double savbal=0;
+		try {
+			listen.session = request.getSession(true);
+			HttpSessionEvent event = new HttpSessionEvent(listen.session);
+			String user = (String) listen.session.getAttribute("attr");
+			 Balance balance = service.getAccountsData(user);
+			 chkbal = balance.getChkbal();
+			 savbal = balance.getSavbal();
+			 model.addAttribute("name", user);
+			 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("bal", chkbal);
+		model.addAttribute("bal1", savbal);
+		
 		return "accounts";
 
-	}
 
+	}
 	@RequestMapping(value = "/accounts", method = RequestMethod.POST)
 	public String getAccountData(Model model, @ModelAttribute Login log, @ModelAttribute SessionListener listen,
 			HttpServletRequest request, HttpServletResponse response) {

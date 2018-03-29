@@ -120,15 +120,8 @@
 <br>
 <ul>
    <li><a href="${contextPath}/bank-application1/login"><span>Home</span></a></li>
-   <li class='active has-sub'>
-   
-   <a href="${contextPath}/bank-application1/accounts"><span>Accounts</span></a>
-      <ul>
-         <li class='has-sub'><a href='#'><span>Check-ins</span></a>
-         </li>
-         <li class='has-sub'><a href='#'><span>Savings</span></a>
-         </li>
-      </ul>
+   <li class='active has-sub'> 
+   <a href="${contextPath}/bank-application1/checkaccount"><span>Accounts</span></a>
    </li>
    <li><a href='#'><span>Apply For Credit Card</span></a></li>
    <li><a href='${contextPath}/bank-application1/statement'><span>Bank Statements</span></a></li>
@@ -136,9 +129,5 @@
    <li><a href='#'><span>Transfer</span></a></li>
 </ul>
 </div>
-<f:form action="/accounts" method="POST" modelAttribute="login">
-<f:button>Check account bal</f:button>
-</f:form>
-
 </body>
 </html>
