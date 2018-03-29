@@ -163,7 +163,7 @@ input[type=text]:hover, input[type=password]:hover, label:hover ~ input[type=tex
 <br>
 <br>
 <br>
-<h1>ACCOUNT SUMMARY</h1>
+<h1>ACCOUNT SUMMARY </h1>
 
 </body>
 </html>
