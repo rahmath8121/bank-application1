@@ -4,7 +4,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.context.annotation.Scope;
 
+
+@Scope("session")
 public class Login {
 	@NotEmpty
 	@NotNull

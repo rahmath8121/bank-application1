@@ -6,18 +6,23 @@
 <tiles-definitions>
 	<definition name="base.defination" template="/WEB-INF/pages/layout.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/pages/header.jsp" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/pages/footer.jsp" />
 	</definition>
 
 	<definition name="login" extends="base.defination">
 		<put-attribute name="title" value="login" />
+		<put-attribute name="header" value="/WEB-INF/pages/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
 		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
 	</definition>
 
 	<definition name="registration" extends="base.defination">
 		<put-attribute name="title" value="registration" />
+		<put-attribute name="header" value="/WEB-INF/pages/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
 		<put-attribute name="body" value="/WEB-INF/pages/registration.jsp" />
 	</definition>
 
@@ -28,18 +33,38 @@
 
 	<definition name="success" extends="base.defination">
 		<put-attribute name="title" value="success page" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
 		<put-attribute name="body" value="/WEB-INF/pages/success.jsp" />
 	</definition>
-	
+
+	<definition name="navbar" extends="base.defination">
+		<put-attribute name="title" value="success page" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu2.jsp" />
+		<put-attribute name="header" value="/WEB-INF/pages/header2.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/navbar.jsp" />
+		<put-attribute name="footer" value="" />
+	</definition>
+
+
 	<definition name="Logout" extends="base.defination">
 		<put-attribute name="title" value="success page" />
 		<put-attribute name="body" value="/WEB-INF/pages/Logout.jsp" />
 	</definition>
-	
-	
+
 	<definition name="success-login" extends="base.defination">
 		<put-attribute name="title" value="success login page" />
+		<put-attribute name="header" value="/WEB-INF/pages/header2.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu2.jsp" />
 		<put-attribute name="body" value="/WEB-INF/pages/success-login.jsp" />
+		<put-attribute name="footer" value="" />
 	</definition>
+	<definition name="accounts" extends="base.defination">
+		<put-attribute name="title" value="account page" />
+		<put-attribute name="header" value="/WEB-INF/pages/header2.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu2.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/accounts.jsp" />
+		<put-attribute name="footer" value="" />
+	</definition>
+
 
 </tiles-definitions>

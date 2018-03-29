@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.bellinfo.spring.tiles.model.Balance;
 import com.bellinfo.spring.tiles.model.Login;
 import com.bellinfo.spring.tiles.model.Registration;
 import com.bellinfo.spring.tiles.service.StudentServiceImpl;
@@ -54,6 +55,61 @@ public class StudentController {
 
 	}
 
+	@RequestMapping(value = "/statement", method = RequestMethod.GET)
+	public String getStat(Model model) {
+		
+		Login log = new Login();
+		model.addAttribute("login", log);
+		return "navbar";
+
+	}
+
+	@RequestMapping(value = "/accounts", method = RequestMethod.GET)
+	public String getAccounts(Model model) {
+		return "accounts";
+
+	}
+
+	@RequestMapping(value = "/accounts", method = RequestMethod.POST)
+	public String getAccountData(Model model, @ModelAttribute Login log, @ModelAttribute SessionListener listen,
+			HttpServletRequest request, HttpServletResponse response) {
+		double chkbal=0;
+		double savbal=0;
+		try {
+			listen.session = request.getSession(true);
+			HttpSessionEvent event = new HttpSessionEvent(listen.session);
+			String user = (String) listen.session.getAttribute("attr");
+			 Balance balance = service.getAccountsData(user);
+			 chkbal = balance.getChkbal();
+			 savbal = balance.getSavbal();
+			 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("bal", chkbal);
+		model.addAttribute("bal1", savbal);
+		return "accounts";
+
+	}
+
+	@RequestMapping(value = "/statement", method = RequestMethod.POST)
+	public String getStatement(Model model, @ModelAttribute Login log, @ModelAttribute SessionListener listen,
+			HttpServletRequest request, HttpServletResponse response) {
+		try {
+			listen.session = request.getSession(true);
+			HttpSessionEvent event = new HttpSessionEvent(listen.session);
+			String user = (String) listen.session.getAttribute("attr");
+			service.getStatement(user);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("login", log);
+		return "navbar";
+
+	}
+
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String postStudentData(Model model, @Valid @ModelAttribute Registration reg, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
@@ -70,38 +126,41 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String getDetails(Model model, @Valid @ModelAttribute Login log, BindingResult bindingResult
-			,SessionListener listen,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String getDetails(Model model, @Valid @ModelAttribute Login log, BindingResult bindingResult,
+			@ModelAttribute SessionListener listen, HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		if (bindingResult.hasErrors()) {
 			return "login";
 		}
-		
+
 		String user = log.getUsername();
 		String pass = log.getPassword();
 		System.out.println(user);
 		System.out.println(pass);
 		String var2 = service.getvalidation(log);
-		HttpSession session = request.getSession(true);
-		HttpSessionEvent event = new HttpSessionEvent(session);
+		listen.session = request.getSession(true);
+		System.out.println(request.getSession(true).getId());
+		HttpSessionEvent event = new HttpSessionEvent(listen.session);
 		listen.sessionCreated(event);
-		request.getSession().setMaxInactiveInterval(500);
+		listen.session.setAttribute("attr", user);
+		// request.getSession().setMaxInactiveInterval(100);
 		model.addAttribute("loginsuccess", var2);
 		return "success-login";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(Model model,SessionListener listen,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession(false);
-		session.invalidate();
-		HttpSessionEvent event = new HttpSessionEvent(session);
+	public String logout(Model model, @ModelAttribute SessionListener listen, HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		listen.session = request.getSession(false);
+		System.out.println(request.getSession(false).getId());
+		listen.session.invalidate();
+		System.out.println(listen.session.getId());
+		HttpSessionEvent event = new HttpSessionEvent(listen.session);
 		listen.sessionDestroyed(event);
 		String str = "You have been successfully logged out";
 		model.addAttribute("message", str);
 		return "Logout";
 	}
-	
-	
 
-	
 }

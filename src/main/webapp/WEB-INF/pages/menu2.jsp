@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
@@ -106,7 +104,6 @@
 }
 </style>
 <head>
-
    <meta charset='utf-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -116,17 +113,32 @@
    <title>CSS MenuMaker</title>
 </head>
 <body>
-<br>
+
 <div id='cssmenu'>
+<br>
+<br>
+<br>
 <ul>
    <li><a href="${contextPath}/bank-application1/login"><span>Home</span></a></li>
-    <li><a href='#'><span>Apply For Credit Card</span></a></li>
-     <li><a href='https://www.chase.com/digital/resources/complaints-feedback'><span>Feedback</span></a></li>
-   <li><a href='https://www.chase.com/digital/resources/about-chase'><span>About</span></a></li>
-   <li><a href='https://www.chase.com/digital/resources/customer-service'><span>help</span></a></li>
-   <li class='last'><a href='https://www.chase.com/digital/resources/customer-service'><span>Contact</span></a></li>
+   <li class='active has-sub'>
+   
+   <a href="${contextPath}/bank-application1/accounts"><span>Accounts</span></a>
+      <ul>
+         <li class='has-sub'><a href='#'><span>Check-ins</span></a>
+         </li>
+         <li class='has-sub'><a href='#'><span>Savings</span></a>
+         </li>
+      </ul>
+   </li>
+   <li><a href='#'><span>Apply For Credit Card</span></a></li>
+   <li><a href='${contextPath}/bank-application1/statement'><span>Bank Statements</span></a></li>
+   <li><a href='#'><span>Pay Bills</span></a></li>
+   <li><a href='#'><span>Transfer</span></a></li>
 </ul>
 </div>
+<f:form action="/accounts" method="POST" modelAttribute="login">
+<f:button>Check account bal</f:button>
+</f:form>
 
 </body>
 </html>

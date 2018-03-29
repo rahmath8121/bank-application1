@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Insert title here</title>
+    <title>ProjectBank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -17,25 +17,28 @@
     <div class="table-responsive">
         <table class="table" >
             <tr>
-                <td height="80" colspan="2">
+                <td colspan="2" >
                     <tiles:insertAttribute name="header"/>
                 </td>
             </tr>
             <tr>
-                <td height="350" width="400" >
+                <td >
+                
+                    <tiles:insertAttribute name="menu"/>
+                </td>
+                <td  >
                   <%--  <tiles:insertAttribute name="title" /><br>--%>
                     <tiles:insertAttribute name="body"/>
                 </td>
-                
             </tr>
             <tr>
-                <td height="100"  colspan="2" >
+                <td   colspan="2" >
                     <tiles:insertAttribute name="footer"/>
                 </td>
             </tr>
         </table>
     </div>
 </div>
-
+ 
 </body>
 </html>

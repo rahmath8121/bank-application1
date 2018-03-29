@@ -1,12 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 <style>
 * {
@@ -156,35 +149,16 @@ input[type=text]:hover, input[type=password]:hover, label:hover ~ input[type=tex
 	background: #27292c;
 }
 </style>
+
 </head>
 <body>
-	<f:form class="login-form" action="/login" method="POST" modelAttribute="login">
-		<h1>ChaseLog in</h1>
-		<div class="inset">
-			<p>
-				<label for="email">LOGIN ID</label>
-				<f:input path="username" type="text" placeholder="username"/>
-				 <f:errors path="username" cssStyle="color:red"></f:errors>
-			</p>
-			<p>
-				<label for="password">PASSWORD</label>
-				 <f:input path="password" type="password" placeholder="password"/>
-			</p>
-			<p>
-				<input type="checkbox" name="remember" id="remember"> <label
-					for="remember">Remember me</label>
+<h4>Name</h4>
+<h4>Checking balance</h4>
+<h4>${bal}</h4>
+<br>
+<br>
+<h4>Savings balance</h4>
+<h4>${bal1}</h4>
 
-			</p>
-			<br> 
-			<input type="submit"  name="go" id="go" value="Login">
-			<hr />
-			<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-			<a class="btn btn-primary center-block" 
-				href="${contextPath}/registration" role="button">Register
-				Here</a>
-		</div>
-
-	</f:form>
 </body>
-
 </html>

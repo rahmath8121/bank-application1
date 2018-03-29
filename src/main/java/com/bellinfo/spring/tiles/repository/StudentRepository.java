@@ -1,5 +1,8 @@
 package com.bellinfo.spring.tiles.repository;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -9,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import com.bellinfo.spring.tiles.model.Balance;
 import com.bellinfo.spring.tiles.model.Login;
 import com.bellinfo.spring.tiles.model.Registration;
 
@@ -63,4 +67,27 @@ public class StudentRepository {
 		return name1;
 		
 	}
+	
+	public Balance getAccountBal(String name) throws Exception {
+		double bal = 0;
+		double bal1 = 0;
+		Balance  balance = new Balance();
+		
+		Class.forName("org.postgresql.Driver");
+		Connection con = DriverManager.getConnection(
+				"jdbc:postgresql://bellinfo.c3rbut2zylxn.us-east-1.rds.amazonaws.com:5432/Bellinfo", "rahmath8121",
+				"Intern8121!");
+		PreparedStatement stmt = con.prepareStatement("SELECT chkbal,savbal FROM TABLE1 where name=?");
+		stmt.setString(1, name);
+		ResultSet query_set = stmt.executeQuery();
+		while(query_set.next()) {
+			bal= query_set.getDouble(1);
+			bal1=query_set.getDouble(2);
+			balance.setChkbal(bal);
+			balance.setSavbal(bal1);
+			
+		}
+	return balance;
+	}
+	
 }
