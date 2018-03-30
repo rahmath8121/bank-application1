@@ -49,7 +49,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="${contextPath}/bank-application1/registration"><span class="glyphicon glyphicon-user"></span>
-							Sign Up</a></li>
+							Sign Up Now</a></li>
 					<li><a href="${contextPath}/bank-application1/login"><span class="glyphicon glyphicon-log-in"></span>
 							Login</a></li>
 				</ul>
