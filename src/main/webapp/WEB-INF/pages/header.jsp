@@ -40,7 +40,7 @@
 					<li class="active"><a href="${contextPath}/bank-application1/login">Home</a></li>
 					<li class="dropdown">
 					<a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Find ATM/Branch<span class="caret"></span></a>
+						data-toggle="dropdown" href="#">Find ATM/Branches<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">ATM</a></li>
 							<li><a href="#">BRANCH</a></li>
