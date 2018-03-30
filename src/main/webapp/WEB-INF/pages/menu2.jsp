@@ -125,8 +125,8 @@
    </li>
    <li><a href='#'><span>Apply For Credit Card</span></a></li>
    <li><a href='${contextPath}/bank-application1/statement'><span>Bank Statements</span></a></li>
-   <li><a href='#'><span>Pay Bills</span></a></li>
-   <li><a href='#'><span>Transfer</span></a></li>
+   <li><a href='${contextPath}/bank-application1/paybill'><span>Pay Bills</span></a></li>
+   <li><a href='${contextPath}/bank-application1/transfer'><span>Transfer</span></a></li>
 </ul>
 </div>
 </body>

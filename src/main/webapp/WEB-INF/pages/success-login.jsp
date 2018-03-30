@@ -11,8 +11,9 @@
 <title>Success Login</title>
 </head>
 <body>
+<br>
+<br>
+<br>
 <h4>${loginsuccess }</h4>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-      <a href="${contextPath}/logout">Sign out</a>
 </body>
 </html>

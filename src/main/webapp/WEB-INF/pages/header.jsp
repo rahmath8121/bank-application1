@@ -1,9 +1,3 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +12,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+</style>
 <body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,13 +32,12 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-				<a class="navbar-brand" href="${contextPath}/login">CHASE BANK</a>
+				<center>
+				<a class="navbar-brand" href="${contextPath}/bank-application1/login">CHASE BANK</a></center>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-				<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-					<li class="active"><a href="${contextPath}/login">Home</a></li>
+					<li class="active"><a href="${contextPath}/bank-application1/login">Home</a></li>
 					<li class="dropdown">
 					<a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Find ATM/Branch<span class="caret"></span></a>
@@ -45,13 +48,9 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-					<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-					<a href="${contextPath}/registration"><span class="glyphicon glyphicon-user"></span>
+					<li><a href="${contextPath}/bank-application1/registration"><span class="glyphicon glyphicon-user"></span>
 							Sign Up</a></li>
-					<li>
-					<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-					<a href="${contextPath}/login"><span class="glyphicon glyphicon-log-in"></span>
+					<li><a href="${contextPath}/bank-application1/login"><span class="glyphicon glyphicon-log-in"></span>
 							Login</a></li>
 				</ul>
 			</div>
@@ -61,8 +60,3 @@
 
 </body>
 </html>
-
-
-
-
-

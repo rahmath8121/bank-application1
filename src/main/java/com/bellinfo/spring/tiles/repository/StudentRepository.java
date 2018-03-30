@@ -27,7 +27,7 @@ public class StudentRepository {
 	}
 
 	public void persist(Registration reg) throws SQLException {
-		jdbctemplate.update("insert into student_new(name,password,email) values(?,?,?)", reg.getUsername(),reg.getPassword(),reg.getEmail());
+		jdbctemplate.update("insert into table1(name,password,email,chkbal,savbal) values(?,?,?,100,100)", reg.getUsername(),reg.getPassword(),reg.getEmail());
 		System.out.println("Inserted Successfully");
 	}
 
@@ -39,13 +39,13 @@ public class StudentRepository {
 		System.out.println(pass);
 		String name1 = "";
 		try {
-			log = jdbctemplate.queryForObject("select * from student_new where name=?", new Object[]{user},
+			log = jdbctemplate.queryForObject("select * from table1 where name=?", new Object[]{user},
 					new RowMapper<Login>() {
 
 						public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
 							Login log = new Login();
-							log.setUsername(rs.getString(1));
-							log.setPassword(rs.getString(2));
+							log.setUsername(rs.getString("name"));
+							log.setPassword(rs.getString("password"));
 							return log;
 						}
 				
@@ -54,7 +54,6 @@ public class StudentRepository {
 			if(user.equals(log.getUsername())&&pass.equals(log.getPassword())) {
 				name1 = "The User Credentials are verified";
 				System.out.println(name1);
-				return name1;
 			}else {
 				name1 = "No user record found";
 				System.out.println(name1);

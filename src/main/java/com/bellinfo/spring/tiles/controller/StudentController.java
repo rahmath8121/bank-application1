@@ -1,21 +1,14 @@
 package com.bellinfo.spring.tiles.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
 import javax.validation.Valid;
 
-import org.apache.tiles.request.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +21,8 @@ import com.bellinfo.spring.tiles.model.Balance;
 import com.bellinfo.spring.tiles.model.Login;
 import com.bellinfo.spring.tiles.model.Registration;
 import com.bellinfo.spring.tiles.service.StudentServiceImpl;
+import com.hibernate.javabased.TransferObject1;
+import com.hibernate.javabased.Withdrawselector;
 
 @Controller
 public class StudentController {
@@ -182,5 +177,55 @@ public class StudentController {
 		model.addAttribute("message", str);
 		return "Logout";
 	}
+	
+	@RequestMapping(value = "/transfer", method = RequestMethod.GET)
+	public String getTransfer(Model model) {
+
+		TransferObject1 transfer = new TransferObject1();
+		model.addAttribute("transfer", transfer);
+		return "transfer";
+	}
+
+	@RequestMapping(value = "/transfer", method = RequestMethod.POST)
+	public String getTransfer(Model model, @ModelAttribute TransferObject1 transfer, @ModelAttribute SessionListener listen,
+			HttpServletRequest request, HttpServletResponse response) {
+
+		listen.session = request.getSession(true);
+		HttpSessionEvent event = new HttpSessionEvent(listen.session);
+		String user = (String) listen.session.getAttribute("attr");
+		Withdrawselector ws =new Withdrawselector();
+		System.out.println(transfer);
+		String text=ws.Withdrawsele(transfer,user);
+		model.addAttribute("message", text);
+		return "transfersuccess";
+
+	}
+	
+	@RequestMapping(value = "/paybill", method = RequestMethod.GET)
+	public String getPaybill(Model model) {
+
+		TransferObject1 transfer1 = new TransferObject1();
+		model.addAttribute("transfer1", transfer1);
+		return "paybill";
+	}
+
+	@RequestMapping(value = "/paybill", method = RequestMethod.POST)
+	public String getPaybill(Model model, @ModelAttribute TransferObject1 transfer1, @ModelAttribute SessionListener listen,
+			HttpServletRequest request, HttpServletResponse response) {
+
+		listen.session = request.getSession(true);
+		HttpSessionEvent event = new HttpSessionEvent(listen.session);
+		String user = (String) listen.session.getAttribute("attr");
+		Withdrawselector ws =new Withdrawselector();
+		transfer1.setToself("Bill pay");
+		
+		String text=ws.Withdrawsele(transfer1,user);
+		model.addAttribute("message", text);
+		return "transfersuccess";
+
+	}
+
+
+
 
 }
