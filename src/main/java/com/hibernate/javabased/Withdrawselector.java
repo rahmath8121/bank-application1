@@ -57,7 +57,7 @@ public class Withdrawselector {
 			} else if (to.getToself().equalsIgnoreCase("Bill pay")) {
 				ws.withdraw5(to.getAmount(), to.getOtheracc());
 			} else {
-				ws.withdraw5(to.getAmount(), to.getOtheracc());
+				ws.withdraw3(to.getAmount(), to.getOtheracc());
 
 			}
 			text="You Transaction is successful";

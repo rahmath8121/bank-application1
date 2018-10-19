@@ -15,7 +15,7 @@
 </head>
 <body>
 <div style="text-align: center">
-<h4>${message }</h4>
+<h4>${message}</h4>
 <br>
 <br>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />

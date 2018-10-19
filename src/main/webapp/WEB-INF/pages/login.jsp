@@ -159,7 +159,7 @@ input[type=text]:hover, input[type=password]:hover, label:hover ~ input[type=tex
 </head>
 <body>
 	<f:form class="login-form" action="/login" method="POST" modelAttribute="login">
-		<h1>ChaseLog in</h1>
+		<h1 style="color:white">ChaseLog in</h1>
 		<div class="inset">
 			<p>
 				<label for="email">LOGIN ID</label>

@@ -172,8 +172,13 @@ input[type=text]:hover, input[type=password]:hover, label:hover ~ input[type=tex
   </p>
   <p>
     <label for="email">EMAIL ADDRESS</label>
-    <f:input path="email" type="text" name="email" id="email"/>
+    <f:input path="email" type="text" name="email" id="email" placeholder="Please enter your email" />
   </p>
+  <p>
+    <label for="address">ADDRESS</label>
+    <f:input path="address" type="text" name="address" id="email" placeholder="Please enter your address" />
+  </p>
+  
    </div>
   <p class="p-container">
     <span></span>

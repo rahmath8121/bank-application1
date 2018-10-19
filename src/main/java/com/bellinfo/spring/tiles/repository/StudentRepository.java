@@ -27,7 +27,7 @@ public class StudentRepository {
 	}
 
 	public void persist(Registration reg) throws SQLException {
-		jdbctemplate.update("insert into table1(name,password,email,chkbal,savbal) values(?,?,?,100,100)", reg.getUsername(),reg.getPassword(),reg.getEmail());
+		jdbctemplate.update("insert into table1(name,password,email,address,chkbal,savbal) values(?,?,?,?,100,100)", reg.getUsername(),reg.getPassword(),reg.getEmail(),reg.getAddress());
 		System.out.println("Inserted Successfully");
 	}
 

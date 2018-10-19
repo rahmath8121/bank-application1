@@ -119,7 +119,6 @@
 <br>
 <br>
 <ul>
-   <li><a href="${contextPath}/bank-application1/login"><span>Home</span></a></li>
    <li class='active has-sub'> 
    <a href="${contextPath}/bank-application1/checkaccount"><span>Accounts</span></a>
    </li>

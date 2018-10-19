@@ -218,7 +218,7 @@ public class StudentController {
 		String user = (String) listen.session.getAttribute("attr");
 		Withdrawselector ws =new Withdrawselector();
 		transfer1.setToself("Bill pay");
-		
+		System.out.println("*************************"+transfer1);
 		String text=ws.Withdrawsele(transfer1,user);
 		model.addAttribute("message", text);
 		return "transfersuccess";

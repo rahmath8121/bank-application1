@@ -17,21 +17,26 @@ public class Registration {
 	@NotEmpty
 	@NotNull
 	String email;
+	String address;
 
-	
-	public Registration(String username, String password, String email) {
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Registration(String username, String password, String email, String address) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.address = address;
 	}
 
-	
-	
 	public Registration() {
 	}
-
-
 
 	public String getUsername() {
 		return username;
@@ -49,13 +54,9 @@ public class Registration {
 		this.password = password;
 	}
 
-
-
 	public String getEmail() {
 		return email;
 	}
-
-
 
 	public void setEmail(String email) {
 		this.email = email;

@@ -5,9 +5,11 @@ import java.util.Properties;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Component;
 
 public class GetSession {
-	public static SessionFactory newSessionFactory() {
+
+	public SessionFactory newSessionFactory() {
 
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
@@ -20,9 +22,9 @@ public class GetSession {
 		properties.put("hibernate.connection.password", "Intern8121!");
 		properties.put("hibernate.default_schema", "public");
 
-		return new Configuration().addProperties(properties).addAnnotatedClass(Table1.class).addAnnotatedClass(Table2.class)
+		return new Configuration().addProperties(properties).addAnnotatedClass(Table1.class)
+				.addAnnotatedClass(Table2.class)
 				.buildSessionFactory(new StandardServiceRegistryBuilder().applySettings(properties).build());
 	}
 
-	
 }

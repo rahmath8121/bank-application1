@@ -37,7 +37,7 @@ footer {
 
 			<div class="col-sm-2">
 				<ul class="unstyled">
-					<li><a href="${contextPath}/projectbank/login">Home</a></li>
+					<li><a href="${contextPath}/bank-application1/login">Home</a></li>
 					<li><a href="https://www.chase.com/digital/resources/about-chase">About Us</a></li>
 					<li><a href="https://www.chase.com/digital/resources/customer-service">Contact</a></li>
 				</ul>

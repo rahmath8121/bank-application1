@@ -69,7 +69,7 @@ public class WithdrawMethods {
 		session.save(s);
 		
 		
-		Table2 t= new Table2(String.valueOf(amount), "Savings", "Bill Pay", receivername);
+		Table2 t= new Table2(String.valueOf(amount), "Savings", "Paid TO", receivername);
 		t.setName(name);
 		session.save(t);
 		
@@ -102,7 +102,7 @@ public class WithdrawMethods {
 		session.save(s);
 		
 		
-		Table2 t= new Table2(String.valueOf(amount), "Savings", "Paid To", receivername);
+		Table2 t= new Table2(String.valueOf(amount), "Savings", "Bill Pay", receivername);
 		t.setName(name);
 		session.save(t);
 		
@@ -118,7 +118,7 @@ public class WithdrawMethods {
 		session.save(s);
 		
 		
-		Table2 t= new Table2(String.valueOf(amount), "checking", "Payd to", receivername);
+		Table2 t= new Table2(String.valueOf(amount), "checking", "Bill Pay", receivername);
 		t.setName(name);
 		session.save(t);
 		
